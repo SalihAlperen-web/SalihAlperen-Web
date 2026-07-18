@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Salih Alperen'in Kitaplığı</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+
+font-family:Arial,sans-serif;
+
+background:linear-gradient(135deg,#cfefff,#b8e4ff);
+
+animation:acilis 1s;
+
+}
+
+@keyframes acilis{
+
+from{
+
+opacity:0;
+
+}
+
+to{
+
+opacity:1;
+
+}
+
+}
+
+header{
+
+background:#0057b8;
+
+color:white;
+
+text-align:center;
+
+padding:30px;
+
+box-shadow:0 5px 15px rgba(0,0,0,.3);
+
+}
+
+header h1{
+
+font-size:42px;
+
+}
+
+header p{
+
+font-size:20px;
+
+margin-top:10px;
+
+}
+
+nav{
+
+background:#003f87;
+
+padding:18px;
+
+text-align:center;
+
+}
+
+nav a{
+
+color:white;
+
+text-decoration:none;
+
+margin:15px;
+
+padding:10px 15px;
+
+font-size:18px;
+
+font-weight:bold;
+
+border-radius:10px;
+
+transition:.3s;
+
+display:inline-block;
+
+}
+
+nav a:hover{
+
+background:#0b73ff;
+
+color:gold;
+
+transform:scale(1.1);
+
+}
+
+.hero{
+
+width:70%;
+
+margin:50px auto;
+
+background:white;
+
+padding:50px;
+
+border-radius:20px;
+
+text-align:center;
+
+border:3px solid #56a8ff;
+
+box-shadow:0 12px 30px rgba(0,0,0,.25);
+
+transition:.35s;
+
+}
+
+.hero:hover{
+
+transform:scale(1.03);
+
+box-shadow:0 20px 40px rgba(0,0,0,.35);
+
+}
+
+.hero h2{
+
+font-size:42px;
+
+color:#0057b8;
+
+margin-bottom:20px;
+
+}
+
+.hero p{
+
+font-size:22px;
+
+margin-bottom:35px;
+
+}
+
+.buton{
+
+background:#0057b8;
+
+color:white;
+
+padding:16px 35px;
+
+border-radius:12px;
+
+text-decoration:none;
+
+font-size:20px;
+
+font-weight:bold;
+
+transition:.3s;
+
+display:inline-block;
+
+}
+
+.buton:hover{
+
+background:#0b73ff;
+
+transform:scale(1.08);
+
+}
+
+.kutu{
+
+width:65%;
+
+margin:40px auto;
+
+background:white;
+
+padding:35px;
+
+border-radius:20px;
+
+border:3px solid #56a8ff;
+
+box-shadow:0 12px 30px rgba(0,0,0,.25);
+
+transition:.35s;
+
+}
+
+.kutu:hover{
+
+transform:scale(1.03);
+
+box-shadow:0 20px 40px rgba(0,0,0,.35);
+
+}
+
+h2{
+
+color:#0057b8;
+
+margin-bottom:20px;
+
+}
+
+p{
+
+font-size:18px;
+
+line-height:1.8;
+
+}
+
+footer{
+
+margin-top:60px;
+
+background:#003f87;
+
+color:white;
+
+text-align:center;
+
+padding:20px;
+
+}
+.kapak{
+
+width:260px;
+
+margin:30px 0;
+
+border-radius:15px;
+
+box-shadow:0 10px 25px rgba(0,0,0,.35);
+
+transition:.4s;
+
+}
+
+.kapak:hover{
+
+transform:scale(1.08) rotate(-2deg);
+
+box-shadow:0 20px 40px rgba(0,0,0,.45);
+
+}
+</style>
+@media (max-width:768px){
+
+nav a{
+
+display:block;
+
+margin:10px auto;
+
+}
+
+.hero{
+
+width:90%;
+
+padding:30px;
+
+}
+
+.hero h2{
+
+font-size:30px;
+
+}
+
+.hero p{
+
+font-size:18px;
+
+}
+
+.kutu{
+
+width:90%;
+
+padding:25px;
+
+}
+
+.kapak{
+
+width:180px;
+
+}
+
+}
+</head>
+
+<body>
+
+<header>
+
+<h1>📚 SALİH ALPEREN'İN KİTAPLIĞI</h1>
+
+<p>Resmî Yazar Web Sitesi</p>
+
+</header>
+
+<nav>
+
+<a href="index.html">🏠 Ana Sayfa</a>
+
+<a href="kitaplarim.html">📚 Kitaplarım</a>
+
+<a href="hakkimda.html">👤 Hakkımda</a>
+
+<a href="duyurular.html">📰 Duyurular</a>
+
+<a href="iletisim.html">📞 İletişim</a>
+
+</nav>
+
+<section class="hero">
+
+<h2>📚 SALİH ALPEREN'İN KİTAPLIĞI</h2>
+
+<p>Hayal Gücüyle Yazılmış Hikâyeler</p>
+<img src="resimler/kapak.jpg" class="kapak" alt="ÇATLAK YUMURTALAR">
+<a href="kitaplarim.html" class="buton">
+
+📖 Kitapları İncele
+
+</a>
+
+</section>
+
+<div class="kutu">
+
+<h2>👋 Hoş Geldiniz</h2>
+
+<p>
+
+Merhaba! Ben <b>Salih Alperen</b>.
+
+</p>
+
+<br>
+
+<p>
+
+Bu siteyi kitaplarımı tanıtmak ve okuyucularımla buluşmak için hazırladım.
+
+</p>
+
+<br>
+
+<p>
+
+📚 İlk kitabım <b>ÇATLAK YUMURTALAR</b> yayımlandı.
+
+</p>
+
+<br>
+
+<p>
+
+✍️ <b>ÇATLAK YUMURTALAR 2</b> şu anda yazım aşamasındadır.
+
+</p>
+
+<br>
+
+<p>
+
+📰 Yeni duyurular ve projeler için sitemi takip edebilirsiniz.
+
+</p>
+
+</div>
+
+<div class="kutu">
+
+<h2>⭐ Neler Bulabilirsiniz?</h2>
+
+<p>📚 Kitaplarım hakkında bilgiler</p>
+
+<p>👤 Hakkımda</p>
+
+<p>📰 Güncel duyurular</p>
+
+<p>📞 İletişim bilgileri</p>
+
+</div>
+
+<footer>
+
+© 2026 Salih Alperen • Tüm Hakları Saklıdır.
+
+</footer>
+
+</body>
+
+</html>
