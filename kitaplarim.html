@@ -1,180 +1,73 @@
 <!DOCTYPE html>
 <html lang="tr">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kitaplarım | Salih Alperen</title>
-
 <style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
-body{
-font-family:Arial,sans-serif;
-background:linear-gradient(135deg,#cfefff,#b8e4ff);
-animation:acilis 1s;
-}
-
-@keyframes acilis{
-from{opacity:0;}
-to{opacity:1;}
-}
-
-header{
-background:#0057b8;
-color:white;
-text-align:center;
-padding:30px;
-box-shadow:0 5px 15px rgba(0,0,0,.3);
-}
-
-nav{
-background:#003f87;
-text-align:center;
-padding:18px;
-}
-
-nav a{
-color:white;
-text-decoration:none;
-font-size:18px;
-font-weight:bold;
-margin:15px;
-padding:10px 15px;
-border-radius:8px;
-transition:.3s;
-}
-
-nav a:hover{
-background:#0b73ff;
-color:gold;
-transform:scale(1.12);
-}
-
-.kutu{
-width:65%;
-background:white;
-margin:35px auto;
-padding:30px;
-border-radius:20px;
-border:3px solid #56a8ff;
-box-shadow:0 12px 30px rgba(0,0,0,.25);
-transition:.35s;
-}
-
-.kutu:hover{
-transform:scale(1.04);
-box-shadow:0 20px 40px rgba(0,0,0,.35);
-}
-
-h2{
-color:#0057b8;
-margin-bottom:15px;
-}
-
-p{
-font-size:18px;
-line-height:1.8;
-}
-
-.durum{
-color:green;
-font-weight:bold;
-}
-
-.yazim{
-color:orange;
-font-weight:bold;
-}
-
-footer{
-margin-top:50px;
-background:#003f87;
-color:white;
-text-align:center;
-padding:20px;
-}
-
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Arial,sans-serif;background:linear-gradient(135deg,#cfefff,#b8e4ff)}
+header{background:#0057b8;color:#fff;text-align:center;padding:30px}
+nav{background:#003f87;text-align:center;padding:18px}
+nav a{color:#fff;text-decoration:none;margin:10px;font-weight:bold}
+.kutu{width:min(700px,90%);margin:30px auto;background:#fff;padding:25px;border-radius:18px;border:3px solid #56a8ff}
+button{background:#28a745;color:#fff;border:none;padding:12px 25px;border-radius:8px;cursor:pointer}
+footer{margin-top:40px;background:#003f87;color:#fff;text-align:center;padding:20px}
 </style>
-
 </head>
-
 <body>
-
 <header>
-
 <h1>📚 KİTAPLARIM</h1>
-
 <p>Yazdığım kitaplar</p>
-
 </header>
 
 <nav>
-
 <a href="index.html">🏠 Ana Sayfa</a>
-
 <a href="kitaplarim.html">📚 Kitaplarım</a>
-
 <a href="hakkimda.html">👤 Hakkımda</a>
-
 <a href="duyurular.html">📰 Duyurular</a>
-
 <a href="iletisim.html">📞 İletişim</a>
-
 </nav>
 
 <div class="kutu">
-
 <h2>📚 ÇATLAK YUMURTALAR</h2>
-
-<p><span class="durum">● Satışta</span></p>
-
-<p>📄 Sayfa Sayısı : 108</p>
-
-<p>📖 İlk yayımlanan kitabımdır.</p>
-<br>
-
-<a href="Çatlak Yumurtalar.pdf.pdf" download="CatlakYumurtalar.pdf">
-style="background:#28a745;
-color:white;
-padding:12px 25px;
-text-decoration:none;
-border-radius:8px;
-font-weight:bold;
-display:inline-block;">
-
-📥 PDF'yi İndir
-
-</a>
-
-<p style="margin-top:15px;">
-👥 <span id="downloadCount">0</span> kez indirildi
-</p>
+<p>📄 Sayfa Sayısı: 108</p>
+<p>📖 İlk yayımlanan kitabımdır.</p><br>
+<button id="indirBtn">📥 PDF'yi İndir</button>
+<p style="margin-top:15px;">👥 <span id="downloadCount">0</span> kez indirildi</p>
 </div>
 
 <div class="kutu">
-
 <h2>📚 ÇATLAK YUMURTALAR 2</h2>
-
-<p><span class="yazim">● Yazım Aşamasında</span></p>
-
-<p>🚀 Yakında satışta.</p>
-
-<p>📖 Yeni maceralar çok yakında sizlerle.</p>
-
+<p>📝 Yazım Aşamasında</p>
+<p>📚 Yakında burada yayınlanacak.</p>
 </div>
 
-<footer>
+<footer>© 2026 Salih Alperen • Tüm Hakları Saklıdır.</footer>
 
-© 2026 Salih Alperen • Tüm Hakları Saklıdır.
+<script type="module">
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
+const supabase=createClient(
+"https://iumibvkzqhyklawmisgk.supabase.co",
+"sb_publishable_ZXqFQYWiASNd1Mz4ta0Xig_yv9B0Q9P"
+);
 
-</footer>
+async function yukle(){
+ const {data}=await supabase.from("downloads").select("count").eq("id","catlakyumurtalar").single();
+ if(data) document.getElementById("downloadCount").textContent=data.count;
+}
+yukle();
 
+document.getElementById("indirBtn").onclick=async()=>{
+ const {data}=await supabase.from("downloads").select("count").eq("id","catlakyumurtalar").single();
+ const sayi=(data?.count||0)+1;
+ await supabase.from("downloads").update({count:sayi}).eq("id","catlakyumurtalar");
+ document.getElementById("downloadCount").textContent=sayi;
+ const a=document.createElement("a");
+ a.href="Çatlak Yumurtalar.pdf.pdf";
+ a.download="CatlakYumurtalar.pdf";
+ a.click();
+};
+</script>
 </body>
-
 </html>
